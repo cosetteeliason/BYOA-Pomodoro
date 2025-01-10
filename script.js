@@ -11,7 +11,13 @@ const statusText = document.getElementById('status');
 function updateDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Update timer display
+    timerDisplay.textContent = timeString;
+    
+    // Update page title
+    document.title = `${timeString} - ${isWorkTime ? 'Work' : 'Break'} | Pomodoro`;
 }
 
 function toggleMode() {
